@@ -10,97 +10,97 @@ export class DataService {
 			name: 'Dominion',
 			art: 'assets/img/expansions/dominion.jpg',
 			icon: 'assets/img/icons/dominion.png',
-			color: '#8f8a76'
+			color: '#8B8472'
 		},
 		{
 			name: 'Intrigue',
 			art: 'assets/img/expansions/intrigue.jpg',
 			icon: 'assets/img/icons/intrigue.png',
-			color: '#847b7c'
+			color: '#918B8B'
 		},
 		{
 			name: 'Seaside',
 			art: 'assets/img/expansions/seaside.jpg',
 			icon: 'assets/img/icons/seaside.png',
-			color: '#6fa7c2'
+			color: '#46C2F0'
 		},
 		{
 			name: 'Alchemy',
 			art: 'assets/img/expansions/alchemy.jpg',
 			icon: 'assets/img/icons/alchemy.png',
-			color: '#8f669e'
+			color: '#7759A3'
 		},
 		{
 			name: 'Prosperity',
 			art: 'assets/img/expansions/prosperity.jpg',
 			icon: 'assets/img/icons/prosperity.png',
-			color: '#b0b161'
+			color: '#ADAC5A'
 		},
 		{
 			name: 'Cornucopia',
 			art: 'assets/img/expansions/cornucopia.jpg',
 			icon: 'assets/img/icons/cornucopia.png',
-			color: '#e7975c'
+			color: '#DDAE73'
 		},
 		{
 			name: 'Hinterlands',
 			art: 'assets/img/expansions/hinterlands.jpg',
 			icon: 'assets/img/icons/hinterlands.png',
-			color: '#65723c'
+			color: '#8EB15F'
 		},
 		{
 			name: 'Dark Ages',
 			art: 'assets/img/expansions/dark-ages.jpg',
 			icon: 'assets/img/icons/dark-ages.png',
-			color: '#bb6041'
+			color: '#CD6E32'
 		},
 		{
 			name: 'Guilds',
 			art: 'assets/img/expansions/guilds.jpg',
 			icon: 'assets/img/icons/guilds.png',
-			color: '#e1787d'
+			color: '#F3888A'
 		},
 		{
 			name: 'Adventures',
 			art: 'assets/img/expansions/adventures.jpg',
 			icon: 'assets/img/icons/adventures.png',
-			color: '#7a7168'
+			color: '#706A6A'
 		},
 		{
 			name: 'Empires',
 			art: 'assets/img/expansions/empires.jpg',
 			icon: 'assets/img/icons/empires.png',
-			color: '#cba445'
+			color: '#CC8E3B'
 		},
 		{
 			name: 'Nocturne',
 			art: 'assets/img/expansions/nocturne.jpg',
 			icon: 'assets/img/icons/nocturne.png',
-			color: '#384182'
+			color: '#29467E'
 		},
 		{
 			name: 'Renaissance',
 			art: 'assets/img/expansions/renaissance.jpg',
 			icon: 'assets/img/icons/renaissance.png',
-			color: '#00aaa1'
+			color: '#3DA4A5'
 		},
 		{
 			name: 'Menagerie',
 			art: 'assets/img/expansions/menagerie.jpg',
 			icon: 'assets/img/icons/menagerie.png',
-			color: '#947849'
+			color: '#9F7F4C'
 		},
 		{
 			name: 'Allies',
 			art: 'assets/img/expansions/allies.jpg',
 			icon: 'assets/img/icons/allies.png',
-			color: '#304131'
+			color: '#235A3A'
 		},
     {
       name: 'Plunder',
       art: 'assets/img/expansions/plunder.jpg',
       icon: 'assets/img/icons/plunder.png',
-      color: '#e99413'
+      color: '#E99413'
     }
   ];
 
