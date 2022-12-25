@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavService } from '../nav.service';
 
 @Component({
-  selector: 'footbar',
+  selector: 'app-footbar',
   templateUrl: './footbar.component.html',
   styleUrls: ['./footbar.component.scss']
 })
