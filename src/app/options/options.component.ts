@@ -4,7 +4,7 @@ import { NavService } from '../nav.service';
 import { SelectionService } from '../selection.service';
 
 @Component({
-  selector: 'options',
+  selector: 'app-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss']
 })

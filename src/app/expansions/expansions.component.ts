@@ -5,7 +5,7 @@ import { NavService } from '../nav.service';
 import { SelectionService } from '../selection.service';
 
 @Component({
-  selector: 'expansions',
+  selector: 'app-expansions',
   templateUrl: './expansions.component.html',
   styleUrls: ['./expansions.component.scss']
 })
