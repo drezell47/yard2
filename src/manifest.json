@@ -1,0 +1,25 @@
+{
+	"short_name": "YARD",
+	"name": "Yet Another Randomizer for Dominion",
+	"icons": [
+		{
+			"src": "/assets/img/android-chrome-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192",
+			"purpose": "any"
+		},
+		{
+			"src": "/assets/img/android-chrome-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	],
+	"start_url": "/",
+	"background_color": "#000000",
+	"display": "fullscreen",
+	"theme_color": "#252a30",
+	"shortcuts": [],
+	"description": "Simple randomizer app to help you pick which Dominion expansions to play.",
+	"screenshots": []
+}
