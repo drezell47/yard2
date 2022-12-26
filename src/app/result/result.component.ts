@@ -11,12 +11,14 @@ import { SelectionService } from '../selection.service';
 export class ResultComponent implements OnInit, FooterController {
 
   public pickedSets: DominionSet[];
+  public pickedLandmarks: string[];
 
   constructor(
       private selectionService: SelectionService,
       private navService: NavService,
       private router: Router) {
     this.pickedSets = [];
+    this.pickedLandmarks = [];
   }
 
   ngOnInit(): void {
@@ -28,15 +30,27 @@ export class ResultComponent implements OnInit, FooterController {
     }
   }
 
-  public randomize(): void {
-    let sets = Object.assign([], this.selectionService.getSets());
-
-    for (let i = sets.length; i > 0; i--) {
+  private shuffle<T>(array: T[]) {
+    for (let i = array.length; i > 0; i--) {
       let j = Math.floor(Math.random() * i);
-      [sets[i - 1], sets[j]] = [sets[j], sets[i - 1]];
+      [array[i - 1], array[j]] = [array[j], array[i - 1]];
     }
+  }
 
+  public randomize(): void {
+    this.pickedSets = [];
+    this.pickedLandmarks = [];
+
+    // pick some random sets
+    let sets = Object.assign([], this.selectionService.getSets());
+    this.shuffle(sets);
     this.pickedSets = sets.splice(0, this.selectionService.getNumSets());
+
+    // pick some random landmarks
+    let landmarks = this.pickedSets.flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));
+    landmarks = landmarks.concat(landmarks);
+    this.shuffle(landmarks);
+    this.pickedLandmarks = landmarks.splice(0, 2);
   }
 
   public clickContinue = this.randomize;

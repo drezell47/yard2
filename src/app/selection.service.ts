@@ -26,8 +26,20 @@ export class SelectionService {
     return this.options.numSets;
   }
 
+  public getNumLandscapes(): number | undefined {
+    return this.options.numLandscapes;
+  }
+
+  public canHaveLandscapes(): boolean {
+    return this.sets.flatMap(set => set.landscapes).length > 0;
+  }
+
   public selectNumSets(numSets: number): void {
     this.options.numSets = numSets;
+  }
+
+  public selectNumLandscapes(numLandscapes: number): void {
+    this.options.numLandscapes = numLandscapes;
   }
 
   public reset(): void {
