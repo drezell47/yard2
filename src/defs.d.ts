@@ -10,7 +10,7 @@ type DominionSet = {
 
 type Options = {
   numSets?: number;
-  numLandscapes?: number;
+  numLandscapes: number;
 };
 
 declare interface FooterController {

@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, TemplateRef } from '@angular/core';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { NavService } from '../nav.service';
-import { SelectionService } from '../selection.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,25 +9,16 @@ import { SelectionService } from '../selection.service';
 })
 export class NavbarComponent {
 
-  public isCollapsed: boolean;
-
   constructor(
-      private selectionService: SelectionService,
-      private navService: NavService,
-      private router: Router) {
-
-    this.isCollapsed = true;
+      public navService: NavService,
+      private offcanvasService: NgbOffcanvas) {
   }
 
-  public showOptions(): boolean {
-    return this.navService.canShowOptions();
-  }
-
-  public showResult(): boolean {
-    return this.navService.canShowResult();
-  }
-
-  public startOver(): void {
-    this.navService.startOver();
+  public openOffcanvas(content: TemplateRef<NavbarComponent>): void {
+    this.offcanvasService.open(content, {
+      position: 'end',
+      panelClass: 'text-bg-dark',
+      container: '#offcanvasContainer'
+    });
   }
 }
