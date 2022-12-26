@@ -11,7 +11,9 @@
       <button [disabled]="unselectedSets().length === 0" (click)="selectAll()"
           type="button" class="btn btn-outline-success btn-sm">Select All</button>
     </h3>
-    <app-card *ngFor="let set of unselectedSets()" [card]="set" (click)="select(set)"></app-card>
+    <div class="d-flex align-content-start flex-wrap justify-content-center">
+      <app-card *ngFor="let set of unselectedSets()" [card]="set" (click)="select(set)"></app-card>
+    </div>
   </div>
   <div class="col">
     <h3 class="text-center">
@@ -19,6 +21,8 @@
       <button [disabled]="selectedSets().length === 0" (click)="unselectAll()"
           type="button" class="btn btn-outline-danger btn-sm">Remove All</button>
     </h3>
-    <app-card *ngFor="let set of selectedSets()" [card]="set" (click)="unselect(set)"></app-card>
+    <div class="d-flex align-content-start flex-wrap justify-content-center">
+      <app-card *ngFor="let set of selectedSets()" [card]="set" (click)="unselect(set)"></app-card>
+    </div>
   </div>
 </div>

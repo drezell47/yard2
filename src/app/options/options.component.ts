@@ -28,6 +28,23 @@ export class OptionsComponent implements OnInit, FooterController {
     }
   }
 
+  public overrideSet(): DominionSet | undefined {
+    return this.selectionService.getOverrideSet();
+  }
+
+  public selectedSets(): DominionSet[] {
+    return this.selectionService.getSets()
+        .filter(set => this.overrideSet() === undefined || this.overrideSet()!.name !== set.name);
+  }
+
+  public selectOverrideSet(set: DominionSet): void {
+    this.selectionService.selectOverrideSet(set);
+  }
+
+  public unselectOverrideSet(): void {
+    this.selectionService.unselectOverrideSet();
+  }
+
   public maxNumSets(): number {
     return Math.max(1, Math.min(5, this.selectionService.getSets().length - 1));
   }
