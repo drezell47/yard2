@@ -22,16 +22,16 @@ export class NavService {
   }
 
   public canShowOptions(): boolean {
-    return this.selectionService.getExpansions().length > 0;
+    return this.selectionService.getSets().length > 0;
   }
 
   public canShowResult(): boolean {
-    return this.selectionService.getNumExpansions() !== undefined;
+    return this.selectionService.getNumSets() !== undefined;
   }
 
   public startOver(): void {
     this.selectionService.reset();
-    this.router.navigate(['/expansions']);
+    this.router.navigate(['sets']);
   }
 
   public setFooterController(footerController: FooterController): void {

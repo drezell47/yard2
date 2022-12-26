@@ -1,4 +1,4 @@
-type Expansion = {
+type DominionSet = {
 	name: string;
 	art: string;
 	icon: string;
@@ -8,7 +8,7 @@ type Expansion = {
 };
 
 type Options = {
-  numExpansions?: number;
+  numSets?: number;
 };
 
 declare interface FooterController {

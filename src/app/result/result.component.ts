@@ -10,13 +10,13 @@ import { SelectionService } from '../selection.service';
 })
 export class ResultComponent implements OnInit, FooterController {
 
-  public pickedExpansions: Expansion[];
+  public pickedSets: DominionSet[];
 
   constructor(
       private selectionService: SelectionService,
       private navService: NavService,
       private router: Router) {
-    this.pickedExpansions = [];
+    this.pickedSets = [];
   }
 
   ngOnInit(): void {
@@ -24,20 +24,20 @@ export class ResultComponent implements OnInit, FooterController {
       this.navService.setFooterController(this);
       this.randomize();
     } else {
-      this.router.navigate(['expansions']);
+      this.router.navigate(['sets']);
     }
   }
 
   public randomize(): void {
-    let expansions = Object.assign([], this.selectionService.getExpansions());
+    let sets = Object.assign([], this.selectionService.getSets());
 
-    // shuffle the expansions randomly
-    for (let i = expansions.length - 1; i > 0; i--) {
+    // shuffle the sets randomly
+    for (let i = sets.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i - 1));
-      [expansions[i], expansions[j]] = [expansions[j], expansions[i]];
+      [sets[i], sets[j]] = [sets[j], sets[i]];
     }
 
-    this.pickedExpansions = expansions.splice(0, this.selectionService.getNumExpansions());
+    this.pickedSets = sets.splice(0, this.selectionService.getNumSets());
   }
 
   public clickContinue = this.randomize;
