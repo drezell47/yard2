@@ -1,25 +1,33 @@
-<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand d-none d-lg-block navbar-logo" href="#"><span class="">Y</span>et Another Randomizer for Dominion</a>
-    <a class="navbar-brand d-block d-lg-none navbar-logo" href="#">YARD</a>
-		<button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse">
-			<ul class="navbar-nav me-auto">
-				<li class="nav-item">
-					<a class="nav-link active" routerLink="/sets" routerLinkActive="active" (click)="isCollapsed = true">Sets</a>
-				</li>
-				<li class="nav-item" *ngIf="showOptions()">
-					<a class="nav-link" routerLink="/options" routerLinkActive="active" (click)="isCollapsed = true">Options</a>
-				</li>
-				<li class="nav-item" *ngIf="showResult()">
-					<a class="nav-link" routerLink="/result" routerLinkActive="active" (click)="isCollapsed = true">Result</a>
-				</li>
-			</ul>
-			<form class="d-flex">
-				<button (click)="isCollapsed = true; startOver()" class="btn btn-outline-danger" type="button">Start Over</button>
-			</form>
+<nav class="navbar fixed-top navbar-dark bg-dark">
+	<div class="container-fluid" id="offcanvasContainer">
+		<span class="navbar-brand d-none d-lg-block navbar-logo"><span class="h3">Y</span>et <span class="h3">A</span>nother <span class="h3">R</span>andomizer for <span class="h3">D</span>ominion</span>
+    <span class="navbar-brand justify-content-center d-block d-lg-none navbar-logo">YARD</span>
+    <button class="navbar-toggler" type="button" (click)="openOffcanvas(offcanvasContent)">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+		<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1">
+      <ng-template #offcanvasContent let-offcanvas>
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Drezell47 - 2022</h5>
+          <button type="button" class="btn-close btn-close-white" (click)="offcanvas.close()"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link fs-4" routerLink="/sets" routerLinkActive="active" (click)="offcanvas.close()">Sets</a>
+            </li>
+            <li class="nav-item" *ngIf="navService.canShowOptions()">
+              <a class="nav-link fs-4" routerLink="/options" routerLinkActive="active" (click)="offcanvas.close()">Options</a>
+            </li>
+            <li class="nav-item" *ngIf="navService.canShowResult()">
+              <a class="nav-link fs-4" routerLink="/result" routerLinkActive="active" (click)="offcanvas.close()">Result</a>
+            </li>
+          </ul>
+          <form class="d-flex mt-4">
+            <button (click)="offcanvas.close(); navService.startOver()" class="btn btn-outline-danger" type="button">Start Over</button>
+          </form>
+        </div>
+      </ng-template>
 		</div>
 	</div>
 </nav>

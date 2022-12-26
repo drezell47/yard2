@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveOffcanvas, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SetsComponent } from './sets/sets.component';
 import { OptionsComponent } from './options/options.component';
 import { ResultComponent } from './result/result.component';
@@ -20,19 +20,22 @@ import { CardComponent } from './card/card.component';
     ResultComponent,
     NavbarComponent,
     FootbarComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
-    }
+      useClass: HashLocationStrategy,
+    },
+    NgbActiveOffcanvas,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }

@@ -1,24 +1,24 @@
 <div class="row">
   <div class="col">
-    <h3>Sets</h3>
-    <p>Which sets do you want to be included in the randomization?</p>
+    <h3 class="text-center">Sets</h3>
+    <p class="text-center">Which sets would you like to use?</p>
   </div>
 </div>
 <div class="row">
   <div class="col">
-    <h3>Available Sets</h3>
-    <p>
-      <button *ngIf="unselectedSets().length > 0" (click)="selectAll()"
+    <h3 class="text-center">
+      Available
+      <button [disabled]="unselectedSets().length === 0" (click)="selectAll()"
           type="button" class="btn btn-outline-success btn-sm">Select All</button>
-    </p>
+    </h3>
     <app-card *ngFor="let set of unselectedSets()" [set]="set" (click)="select(set)"></app-card>
   </div>
   <div class="col">
-    <h3>Selected Sets</h3>
-    <p>
-      <button *ngIf="selectedSets().length > 0" (click)="unselectAll()"
+    <h3 class="text-center">
+      Selected
+      <button [disabled]="selectedSets().length === 0" (click)="unselectAll()"
           type="button" class="btn btn-outline-danger btn-sm">Remove All</button>
-    </p>
+    </h3>
     <app-card *ngFor="let set of selectedSets()" [set]="set" (click)="unselect(set)"></app-card>
   </div>
 </div>
