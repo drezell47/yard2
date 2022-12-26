@@ -1,14 +1,16 @@
-type Expansion = {
+type DominionSet = {
 	name: string;
 	art: string;
 	icon: string;
 	color: string;
+  landscapes: string[];
   selected?: boolean;
   picked?: boolean;
 };
 
 type Options = {
-  numExpansions?: number;
+  numSets?: number;
+  numLandscapes?: number;
 };
 
 declare interface FooterController {

@@ -4,13 +4,14 @@ import { NavService } from '../nav.service';
 import { SelectionService } from '../selection.service';
 
 @Component({
-  selector: 'options',
+  selector: 'app-options',
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss']
 })
 export class OptionsComponent implements OnInit, FooterController {
 
-  public selectedNumExpansions: number | undefined;
+  public selectedNumSets: number | undefined;
+  public selectedNumLandscapes: number | undefined;
 
   constructor(
       private selectionService: SelectionService,
@@ -20,32 +21,53 @@ export class OptionsComponent implements OnInit, FooterController {
   ngOnInit(): void {
     if (this.navService.canShowOptions()) {
       this.navService.setFooterController(this);
-      this.selectedNumExpansions = this.selectionService.getNumExpansions();
+      this.selectedNumSets = this.selectionService.getNumSets();
+      this.selectedNumLandscapes = this.selectionService.getNumLandscapes();
     } else {
-      this.router.navigate(['expansions']);
+      this.router.navigate(['sets']);
     }
   }
 
-  public maxNumExpansions(): number {
-    return Math.max(1, Math.min(10, this.selectionService.getExpansions().length - 1));
+  public maxNumSets(): number {
+    return Math.max(1, Math.min(10, this.selectionService.getSets().length - 1));
   }
 
-  public selectNumExpansions(numExpansions: number): void {
-    this.selectedNumExpansions = numExpansions;
+  public canHaveLandscapes(): boolean {
+    return this.selectionService.canHaveLandscapes();
+  }
+
+  public maxNumLandscapes(): number {
+    return 4;
+  }
+
+  public selectNumSets(numSets: number): void {
+    this.selectedNumSets = numSets;
+  }
+
+  public selectNumLandscapes(numLandscapes: number): void {
+    this.selectedNumLandscapes = numLandscapes;
   }
 
   public continueText(): string {
-    return this.selectedNumExpansions
-        ? 'Continue'
-        : 'Select a number of expansions';
+    return this.selectedNumSets !== undefined
+        ? (!this.canHaveLandscapes() || this.selectedNumLandscapes !== undefined)
+            ? 'Continue to Result'
+            : 'Select a number of landscapes'
+        : 'Select a number of sets';
   }
 
   public clickContinue(): void {
-    this.selectionService.selectNumExpansions(this.selectedNumExpansions!);
-    this.router.navigate(['/result'])
+    this.selectionService.selectNumSets(this.selectedNumSets!);
+
+    if (this.canHaveLandscapes()) {
+      this.selectionService.selectNumLandscapes(this.selectedNumLandscapes!);
+    }
+
+    this.router.navigate(['result'])
   }
 
   public canContinue(): boolean {
-    return this.selectedNumExpansions !== undefined;
+    return this.selectedNumSets !== undefined
+        && (!this.canHaveLandscapes() || this.selectedNumLandscapes !== undefined);
   }
 }

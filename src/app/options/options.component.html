@@ -1,21 +1,51 @@
-<div class="container-fluid text-white">
-  <div class="row">
-    <div class="col">
-      <h3>Options</h3>
-    </div>
+<div class="row">
+  <div class="col">
+    <h3>Options</h3>
   </div>
-  <div class="row">
-    <div class="col">
-      <p>How many expansions do you want to play with?</p>
-      <nav>
-        <ul class="pagination pagination-lg">
-          <li *ngFor="let _ of [].constructor(maxNumExpansions()); let i = index"
-              class="page-item" (click)="selectNumExpansions(i + 1)"
-              [ngClass]="{'active': selectedNumExpansions == (i + 1)}">
+</div>
+<div class="row">
+  <div class="col">
+    <p>How many sets do you want to play with?</p>
+    <nav class="d-none d-sm-block">
+      <ul class="pagination pagination-lg">
+        <li *ngFor="let _ of [].constructor(maxNumSets()); let i = index"
+            class="page-item" (click)="selectNumSets(i + 1)"
+            [ngClass]="{'active': selectedNumSets == (i + 1)}">
           <a class="page-link">{{(i + 1)}}</a>
         </li>
       </ul>
     </nav>
-    </div>
+    <nav class="d-block d-sm-none">
+      <ul class="pagination justify-content-center">
+        <li *ngFor="let _ of [].constructor(maxNumSets()); let i = index"
+            class="page-item" (click)="selectNumSets(i + 1)"
+            [ngClass]="{'active': selectedNumSets == (i + 1)}">
+          <a class="page-link">{{(i + 1)}}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div class="row" *ngIf="canHaveLandscapes()">
+  <div class="col">
+    <p>How many landscapes do you want to play with?</p>
+    <nav class="d-none d-sm-block">
+      <ul class="pagination pagination-lg">
+        <li *ngFor="let _ of [].constructor(maxNumLandscapes()); let i = index"
+            class="page-item" (click)="selectNumLandscapes(i + 1)"
+            [ngClass]="{'active': selectedNumLandscapes == (i + 1)}">
+          <a class="page-link">{{(i + 1)}}</a>
+        </li>
+      </ul>
+    </nav>
+    <nav class="d-block d-sm-none">
+      <ul class="pagination justify-content-center">
+        <li *ngFor="let _ of [].constructor(maxNumLandscapes()); let i = index"
+            class="page-item" (click)="selectNumLandscapes(i + 1)"
+            [ngClass]="{'active': selectedNumLandscapes == (i + 1)}">
+          <a class="page-link">{{(i + 1)}}</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>

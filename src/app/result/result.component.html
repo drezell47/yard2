@@ -1,14 +1,11 @@
-<div class="container-fluid text-white">
-  <div class="row">
-    <div class="col">
-      <h3>Result</h3>
-      <p>Play with these expansions:</p>
-      <div class="card card-large" *ngFor="let expansion of pickedExpansions"
-          [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + expansion.color + ' 25%)'">
-        <img class="icon" [src]="expansion.icon">
-        <p>{{expansion.name}}</p>
-        <img [src]="expansion.art">
-      </div>
-    </div>
+<div class="row">
+  <div class="col">
+    <h3>Result</h3>
+    <p>Play with these sets:</p>
+    <app-card large *ngFor="let set of pickedSets" [set]="set"></app-card>
+    <p *ngIf="pickedLandmarks.length > 0">Use these landmarks:</p>
+    <ul *ngIf="pickedLandmarks.length > 0">
+      <li *ngFor="let landmark of pickedLandmarks">{{landmark}}</li>
+    </ul>
   </div>
 </div>

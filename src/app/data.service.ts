@@ -5,108 +5,124 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  private allExpansions: Expansion[] = [
+  private allSets: DominionSet[] = [
     {
 			name: 'Dominion',
-			art: 'assets/img/expansions/dominion.jpg',
+			art: 'assets/img/sets/dominion.jpg',
 			icon: 'assets/img/icons/dominion.png',
-			color: '#8f8a76'
+			color: '#8B8472',
+      landscapes: [],
 		},
 		{
 			name: 'Intrigue',
-			art: 'assets/img/expansions/intrigue.jpg',
+			art: 'assets/img/sets/intrigue.jpg',
 			icon: 'assets/img/icons/intrigue.png',
-			color: '#847b7c'
+			color: '#918B8B',
+      landscapes: [],
 		},
 		{
 			name: 'Seaside',
-			art: 'assets/img/expansions/seaside.jpg',
+			art: 'assets/img/sets/seaside.jpg',
 			icon: 'assets/img/icons/seaside.png',
-			color: '#6fa7c2'
+			color: '#46C2F0',
+      landscapes: [],
 		},
 		{
 			name: 'Alchemy',
-			art: 'assets/img/expansions/alchemy.jpg',
+			art: 'assets/img/sets/alchemy.jpg',
 			icon: 'assets/img/icons/alchemy.png',
-			color: '#8f669e'
+			color: '#7759A3',
+      landscapes: [],
 		},
 		{
 			name: 'Prosperity',
-			art: 'assets/img/expansions/prosperity.jpg',
+			art: 'assets/img/sets/prosperity.jpg',
 			icon: 'assets/img/icons/prosperity.png',
-			color: '#b0b161'
+			color: '#ADAC5A',
+      landscapes: [],
 		},
 		{
 			name: 'Cornucopia',
-			art: 'assets/img/expansions/cornucopia.jpg',
+			art: 'assets/img/sets/cornucopia.jpg',
 			icon: 'assets/img/icons/cornucopia.png',
-			color: '#e7975c'
+			color: '#DDAE73',
+      landscapes: [],
 		},
 		{
 			name: 'Hinterlands',
-			art: 'assets/img/expansions/hinterlands.jpg',
+			art: 'assets/img/sets/hinterlands.jpg',
 			icon: 'assets/img/icons/hinterlands.png',
-			color: '#65723c'
+			color: '#8EB15F',
+      landscapes: [],
 		},
 		{
 			name: 'Dark Ages',
-			art: 'assets/img/expansions/dark-ages.jpg',
+			art: 'assets/img/sets/dark-ages.jpg',
 			icon: 'assets/img/icons/dark-ages.png',
-			color: '#bb6041'
+			color: '#CD6E32',
+      landscapes: [],
 		},
 		{
 			name: 'Guilds',
-			art: 'assets/img/expansions/guilds.jpg',
+			art: 'assets/img/sets/guilds.jpg',
 			icon: 'assets/img/icons/guilds.png',
-			color: '#e1787d'
+			color: '#F3888A',
+      landscapes: [],
 		},
 		{
 			name: 'Adventures',
-			art: 'assets/img/expansions/adventures.jpg',
+			art: 'assets/img/sets/adventures.jpg',
 			icon: 'assets/img/icons/adventures.png',
-			color: '#7a7168'
+			color: '#706A6A',
+      landscapes: ['Event'],
 		},
 		{
 			name: 'Empires',
-			art: 'assets/img/expansions/empires.jpg',
+			art: 'assets/img/sets/empires.jpg',
 			icon: 'assets/img/icons/empires.png',
-			color: '#cba445'
+			color: '#CC8E3B',
+      landscapes: ['Landmark', 'Event'],
 		},
 		{
 			name: 'Nocturne',
-			art: 'assets/img/expansions/nocturne.jpg',
+			art: 'assets/img/sets/nocturne.jpg',
 			icon: 'assets/img/icons/nocturne.png',
-			color: '#384182'
+			color: '#29467E',
+      landscapes: [],
 		},
 		{
 			name: 'Renaissance',
-			art: 'assets/img/expansions/renaissance.jpg',
+			art: 'assets/img/sets/renaissance.jpg',
 			icon: 'assets/img/icons/renaissance.png',
-			color: '#00aaa1'
+			color: '#3DA4A5',
+      landscapes: ['Project'],
 		},
 		{
 			name: 'Menagerie',
-			art: 'assets/img/expansions/menagerie.jpg',
+			art: 'assets/img/sets/menagerie.jpg',
 			icon: 'assets/img/icons/menagerie.png',
-			color: '#947849'
+			color: '#9F7F4C',
+      landscapes: ['Way', 'Event'],
 		},
 		{
 			name: 'Allies',
-			art: 'assets/img/expansions/allies.jpg',
+			art: 'assets/img/sets/allies.jpg',
 			icon: 'assets/img/icons/allies.png',
-			color: '#304131'
+			color: '#235A3A',
+      landscapes: [],
 		},
     {
       name: 'Plunder',
-      art: 'assets/img/expansions/plunder.jpg',
+      art: 'assets/img/sets/plunder.jpg',
       icon: 'assets/img/icons/plunder.png',
-      color: '#e99413'
+      color: '#E99413',
+      landscapes: ['Trait', 'Event'],
     }
   ];
 
   constructor() { }
 
-  public getAllExpansions(): Expansion[] {
-    return this.allExpansions;
+  public getAllSets(): DominionSet[] {
+    return this.allSets;
   }
 }

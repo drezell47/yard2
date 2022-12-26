@@ -5,33 +5,45 @@ import { Injectable } from '@angular/core';
 })
 export class SelectionService {
 
-  private expansions: Expansion[];
+  private sets: DominionSet[];
   private options: Options;
 
   constructor() {
-    this.expansions = [];
+    this.sets = [];
     this.options = {};
   }
 
-  public getExpansions(): Expansion[] {
-    return this.expansions;
+  public getSets(): DominionSet[] {
+    return this.sets;
   }
 
-  public selectExpansions(expansions: Expansion[]): void {
-    this.expansions = expansions;
+  public selectSets(sets: DominionSet[]): void {
+    this.sets = sets;
     this.options = {};
   }
 
-  public getNumExpansions(): number | undefined {
-    return this.options.numExpansions;
+  public getNumSets(): number | undefined {
+    return this.options.numSets;
   }
 
-  public selectNumExpansions(numExpansions: number): void {
-    this.options.numExpansions = numExpansions;
+  public getNumLandscapes(): number | undefined {
+    return this.options.numLandscapes;
+  }
+
+  public canHaveLandscapes(): boolean {
+    return this.sets.flatMap(set => set.landscapes).length > 0;
+  }
+
+  public selectNumSets(numSets: number): void {
+    this.options.numSets = numSets;
+  }
+
+  public selectNumLandscapes(numLandscapes: number): void {
+    this.options.numLandscapes = numLandscapes;
   }
 
   public reset(): void {
-    this.expansions = [];
+    this.sets = [];
     this.options = {};
   }
 }

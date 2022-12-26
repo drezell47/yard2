@@ -1,0 +1,6 @@
+<div class="card" (click)="click.emit()" [ngClass]="{'card-clickable': click.observed, 'card-large': large}"
+    [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + set.color + ' 20%)'">
+  <img class="icon" [src]="set.icon">
+  <p>{{set.name}}</p>
+  <img [src]="set.art">
+</div>

@@ -1,0 +1,68 @@
+.card {
+  font-family: 'Charlemagne';
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	height: 170px;
+	margin: 0 4px;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: 0.1s ease;
+
+  &.card-clickable {
+		cursor: pointer;
+
+		&:hover {
+			transform: translateY(-3px);
+		}
+	}
+
+  img {
+		max-height: 140px;
+		display: block;
+		margin: -2px auto 0;
+
+		&.icon {
+			position: absolute;
+			right: 4px;
+			top: 4px;
+			margin: 0;
+			object-fit: contain;
+			height: 11pt;
+			width: 11pt;
+      line-height: 30px;
+		}
+	}
+
+	p {
+		margin: 0;
+		padding: 0 0 0 6px;
+		color: black;
+		font-size: 11pt;
+		line-height: 30px;
+	}
+
+	&.card-large {
+		width: 240px;
+		height: 270px;
+		border-radius: 12px;
+
+		img {
+			max-height: 240px;
+			margin: -4px auto;
+
+			&.icon {
+        right: 6px;
+        top: 6px;
+				height: 16pt;
+				width: 16pt;
+			}
+		}
+
+		p {
+			font-size: 20pt;
+      line-height: 40px;
+		}
+	}
+}
