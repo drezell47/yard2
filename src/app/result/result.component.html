@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col">
     <h3 class="text-center">Result</h3>
-    <app-card large *ngFor="let set of pickedSets" [set]="set"></app-card>
+    <app-card large *ngFor="let set of pickedSets" [card]="set"></app-card>
     <h3 class="text-center">Landscapes</h3>
     <p class="text-center" *ngIf="pickedLandscapes.length === 0">None</p>
     <p class="text-center" *ngFor="let landscape of pickedLandscapes">{{landscape}}</p>

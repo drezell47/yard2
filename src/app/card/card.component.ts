@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-card[set]',
+  selector: 'app-card[card]',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
 
   @Input()
-  set: DominionSet;
+  card: CardShaped;
 
   @Output()
   click = new EventEmitter<void>();

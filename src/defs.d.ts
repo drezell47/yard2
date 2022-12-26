@@ -1,8 +1,11 @@
-type DominionSet = {
-	name: string;
+type CardShaped = {
+  name: string;
 	art: string;
 	icon: string;
 	color: string;
+};
+
+type DominionSet = CardShaped & {
   landscapes: string[];
   selected?: boolean;
   picked?: boolean;
