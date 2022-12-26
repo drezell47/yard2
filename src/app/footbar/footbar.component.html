@@ -1,8 +1,12 @@
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
   <div class="container-fluid">
-    <form class="d-flex">
+    <form class="d-flex d-none d-sm-block">
       <button (click)="clickContinue()" [disabled]="disableContinue()"
           type="button" class="btn btn-primary">{{continueText()}}</button>
+    </form>
+    <form class="d-flex flex-grow-1 d-block d-sm-none">
+      <button (click)="clickContinue()" [disabled]="disableContinue()"
+          type="button" class="btn btn-primary btn-lg flex-grow-1">{{continueText()}}</button>
     </form>
     <span id="footbar-logo" class="navbar-text d-none d-sm-block">Nick Handrick - 2022</span>
   </div>

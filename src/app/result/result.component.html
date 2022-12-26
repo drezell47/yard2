@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col">
     <h3>Result</h3>
-    <p>Play with these expansions:</p>
-    <div class="card card-large" *ngFor="let expansion of pickedExpansions"
-        [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + expansion.color + ' 25%)'">
-      <img class="icon" [src]="expansion.icon">
-      <p>{{expansion.name}}</p>
-      <img [src]="expansion.art">
+    <p>Play with these sets:</p>
+    <div class="card card-large" *ngFor="let set of pickedSets"
+        [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + set.color + ' 25%)'">
+      <img class="icon" [src]="set.icon">
+      <p>{{set.name}}</p>
+      <img [src]="set.art">
     </div>
   </div>
 </div>

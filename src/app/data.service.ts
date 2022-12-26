@@ -5,100 +5,100 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  private allExpansions: Expansion[] = [
+  private allSets: DominionSet[] = [
     {
 			name: 'Dominion',
-			art: 'assets/img/expansions/dominion.jpg',
+			art: 'assets/img/sets/dominion.jpg',
 			icon: 'assets/img/icons/dominion.png',
 			color: '#8B8472'
 		},
 		{
 			name: 'Intrigue',
-			art: 'assets/img/expansions/intrigue.jpg',
+			art: 'assets/img/sets/intrigue.jpg',
 			icon: 'assets/img/icons/intrigue.png',
 			color: '#918B8B'
 		},
 		{
 			name: 'Seaside',
-			art: 'assets/img/expansions/seaside.jpg',
+			art: 'assets/img/sets/seaside.jpg',
 			icon: 'assets/img/icons/seaside.png',
 			color: '#46C2F0'
 		},
 		{
 			name: 'Alchemy',
-			art: 'assets/img/expansions/alchemy.jpg',
+			art: 'assets/img/sets/alchemy.jpg',
 			icon: 'assets/img/icons/alchemy.png',
 			color: '#7759A3'
 		},
 		{
 			name: 'Prosperity',
-			art: 'assets/img/expansions/prosperity.jpg',
+			art: 'assets/img/sets/prosperity.jpg',
 			icon: 'assets/img/icons/prosperity.png',
 			color: '#ADAC5A'
 		},
 		{
 			name: 'Cornucopia',
-			art: 'assets/img/expansions/cornucopia.jpg',
+			art: 'assets/img/sets/cornucopia.jpg',
 			icon: 'assets/img/icons/cornucopia.png',
 			color: '#DDAE73'
 		},
 		{
 			name: 'Hinterlands',
-			art: 'assets/img/expansions/hinterlands.jpg',
+			art: 'assets/img/sets/hinterlands.jpg',
 			icon: 'assets/img/icons/hinterlands.png',
 			color: '#8EB15F'
 		},
 		{
 			name: 'Dark Ages',
-			art: 'assets/img/expansions/dark-ages.jpg',
+			art: 'assets/img/sets/dark-ages.jpg',
 			icon: 'assets/img/icons/dark-ages.png',
 			color: '#CD6E32'
 		},
 		{
 			name: 'Guilds',
-			art: 'assets/img/expansions/guilds.jpg',
+			art: 'assets/img/sets/guilds.jpg',
 			icon: 'assets/img/icons/guilds.png',
 			color: '#F3888A'
 		},
 		{
 			name: 'Adventures',
-			art: 'assets/img/expansions/adventures.jpg',
+			art: 'assets/img/sets/adventures.jpg',
 			icon: 'assets/img/icons/adventures.png',
 			color: '#706A6A'
 		},
 		{
 			name: 'Empires',
-			art: 'assets/img/expansions/empires.jpg',
+			art: 'assets/img/sets/empires.jpg',
 			icon: 'assets/img/icons/empires.png',
 			color: '#CC8E3B'
 		},
 		{
 			name: 'Nocturne',
-			art: 'assets/img/expansions/nocturne.jpg',
+			art: 'assets/img/sets/nocturne.jpg',
 			icon: 'assets/img/icons/nocturne.png',
 			color: '#29467E'
 		},
 		{
 			name: 'Renaissance',
-			art: 'assets/img/expansions/renaissance.jpg',
+			art: 'assets/img/sets/renaissance.jpg',
 			icon: 'assets/img/icons/renaissance.png',
 			color: '#3DA4A5'
 		},
 		{
 			name: 'Menagerie',
-			art: 'assets/img/expansions/menagerie.jpg',
+			art: 'assets/img/sets/menagerie.jpg',
 			icon: 'assets/img/icons/menagerie.png',
 			color: '#9F7F4C'
 		},
 		{
 			name: 'Allies',
-			art: 'assets/img/expansions/allies.jpg',
+			art: 'assets/img/sets/allies.jpg',
 			icon: 'assets/img/icons/allies.png',
 			color: '#235A3A'
 		},
     {
       name: 'Plunder',
-      art: 'assets/img/expansions/plunder.jpg',
+      art: 'assets/img/sets/plunder.jpg',
       icon: 'assets/img/icons/plunder.png',
       color: '#E99413'
     }
@@ -106,7 +106,7 @@ export class DataService {
 
   constructor() { }
 
-  public getAllExpansions(): Expansion[] {
-    return this.allExpansions;
+  public getAllSets(): DominionSet[] {
+    return this.allSets;
   }
 }

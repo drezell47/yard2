@@ -10,7 +10,7 @@ import { SelectionService } from '../selection.service';
 })
 export class OptionsComponent implements OnInit, FooterController {
 
-  public selectedNumExpansions: number | undefined;
+  public selectedNumSets: number | undefined;
 
   constructor(
       private selectionService: SelectionService,
@@ -20,32 +20,32 @@ export class OptionsComponent implements OnInit, FooterController {
   ngOnInit(): void {
     if (this.navService.canShowOptions()) {
       this.navService.setFooterController(this);
-      this.selectedNumExpansions = this.selectionService.getNumExpansions();
+      this.selectedNumSets = this.selectionService.getNumSets();
     } else {
-      this.router.navigate(['expansions']);
+      this.router.navigate(['sets']);
     }
   }
 
-  public maxNumExpansions(): number {
-    return Math.max(1, Math.min(10, this.selectionService.getExpansions().length - 1));
+  public maxNumSets(): number {
+    return Math.max(1, Math.min(10, this.selectionService.getSets().length - 1));
   }
 
-  public selectNumExpansions(numExpansions: number): void {
-    this.selectedNumExpansions = numExpansions;
+  public selectNumSets(numSets: number): void {
+    this.selectedNumSets = numSets;
   }
 
   public continueText(): string {
-    return this.selectedNumExpansions
+    return this.selectedNumSets
         ? 'Continue'
-        : 'Select a number of expansions';
+        : 'Select a number of sets';
   }
 
   public clickContinue(): void {
-    this.selectionService.selectNumExpansions(this.selectedNumExpansions!);
-    this.router.navigate(['/result'])
+    this.selectionService.selectNumSets(this.selectedNumSets!);
+    this.router.navigate(['result'])
   }
 
   public canContinue(): boolean {
-    return this.selectedNumExpansions !== undefined;
+    return this.selectedNumSets !== undefined;
   }
 }
