@@ -6,33 +6,19 @@
 </div>
 <div class="row">
   <div class="col">
-    <h3>
-      Available Sets
-    </h3>
+    <h3>Available Sets</h3>
     <p>
       <button *ngIf="unselectedSets().length > 0" (click)="selectAll()"
           type="button" class="btn btn-outline-success btn-sm">Select All</button>
     </p>
-    <div *ngFor="let set of unselectedSets()" class="card card-clickable" (click)="select(set)"
-        [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + set.color + ' 20%)'">
-      <img class="icon" [src]="set.icon">
-      <p>{{set.name}}</p>
-      <img [src]="set.art">
-    </div>
+    <app-card *ngFor="let set of unselectedSets()" [set]="set" (click)="select(set)"></app-card>
   </div>
   <div class="col">
-    <h3>
-      Selected Sets
-    </h3>
+    <h3>Selected Sets</h3>
     <p>
       <button *ngIf="selectedSets().length > 0" (click)="unselectAll()"
           type="button" class="btn btn-outline-danger btn-sm">Remove All</button>
     </p>
-    <div *ngFor="let set of selectedSets()" class="card card-clickable" (click)="unselect(set)"
-        [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + set.color + ' 20%)'">
-      <img class="icon" [src]="set.icon">
-      <p>{{set.name}}</p>
-      <img [src]="set.art">
-    </div>
+    <app-card *ngFor="let set of selectedSets()" [set]="set" (click)="unselect(set)"></app-card>
   </div>
 </div>

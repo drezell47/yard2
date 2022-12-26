@@ -56,7 +56,7 @@ export class SetsComponent implements OnInit, FooterController {
 
   public continueText(): string {
     return this.selectedSets().length > 1
-        ? 'Continue'
+        ? 'Continue to Options'
         : 'Select at least 2 sets';
   }
 
