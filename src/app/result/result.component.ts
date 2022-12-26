@@ -50,7 +50,7 @@ export class ResultComponent implements OnInit, FooterController {
     let landmarks = this.pickedSets.flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));
     landmarks = landmarks.concat(landmarks);
     this.shuffle(landmarks);
-    this.pickedLandmarks = landmarks.splice(0, 2);
+    this.pickedLandmarks = landmarks.splice(0, this.selectionService.getNumLandscapes());
   }
 
   public clickContinue = this.randomize;
