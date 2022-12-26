@@ -11,6 +11,7 @@ import { SelectionService } from '../selection.service';
 export class OptionsComponent implements OnInit, FooterController {
 
   public selectedNumSets: number | undefined;
+  public selectedNumLandscapes: number | undefined;
 
   constructor(
       private selectionService: SelectionService,
@@ -30,13 +31,27 @@ export class OptionsComponent implements OnInit, FooterController {
     return Math.max(1, Math.min(10, this.selectionService.getSets().length - 1));
   }
 
+  public canHaveLandscapes(): boolean {
+    return this.selectionService.canHaveLandscapes();
+  }
+
+  public maxNumLandscapes(): number {
+    return 4;
+  }
+
   public selectNumSets(numSets: number): void {
     this.selectedNumSets = numSets;
   }
 
+  public selectNumLandscapes(numLandscapes: number): void {
+    this.selectedNumLandscapes = numLandscapes;
+  }
+
   public continueText(): string {
-    return this.selectedNumSets
-        ? 'Continue to Result'
+    return this.selectedNumSets !== undefined
+        ? (!this.canHaveLandscapes() || this.selectedNumLandscapes !== undefined)
+            ? 'Continue to Result'
+            : 'Select a number of landscapes'
         : 'Select a number of sets';
   }
 
@@ -46,6 +61,7 @@ export class OptionsComponent implements OnInit, FooterController {
   }
 
   public canContinue(): boolean {
-    return this.selectedNumSets !== undefined;
+    return this.selectedNumSets !== undefined
+        && (!this.canHaveLandscapes() || this.selectedNumLandscapes !== undefined);
   }
 }

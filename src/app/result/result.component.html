@@ -3,5 +3,9 @@
     <h3>Result</h3>
     <p>Play with these sets:</p>
     <app-card large *ngFor="let set of pickedSets" [set]="set"></app-card>
+    <p *ngIf="pickedLandmarks.length > 0">Use these landmarks:</p>
+    <ul *ngIf="pickedLandmarks.length > 0">
+      <li *ngFor="let landmark of pickedLandmarks">{{landmark}}</li>
+    </ul>
   </div>
 </div>
