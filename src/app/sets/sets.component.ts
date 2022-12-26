@@ -18,7 +18,7 @@ export class SetsComponent implements OnInit, FooterController {
         private selectionService: SelectionService,
         private router: Router,
         private navService: NavService) {
-    this.sets = Object.assign([], this.dataService.getAllSets());
+    this.sets = Object.assign([], this.dataService.getSets());
   }
 
   ngOnInit(): void {
