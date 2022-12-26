@@ -31,10 +31,9 @@ export class ResultComponent implements OnInit, FooterController {
   public randomize(): void {
     let sets = Object.assign([], this.selectionService.getSets());
 
-    // shuffle the sets randomly
-    for (let i = sets.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i - 1));
-      [sets[i], sets[j]] = [sets[j], sets[i]];
+    for (let i = sets.length; i > 0; i--) {
+      let j = Math.floor(Math.random() * i);
+      [sets[i - 1], sets[j]] = [sets[j], sets[i - 1]];
     }
 
     this.pickedSets = sets.splice(0, this.selectionService.getNumSets());
