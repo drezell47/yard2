@@ -22,6 +22,7 @@ export class OptionsComponent implements OnInit, FooterController {
     if (this.navService.canShowOptions()) {
       this.navService.setFooterController(this);
       this.selectedNumSets = this.selectionService.getNumSets();
+      this.selectedNumLandscapes = this.selectionService.getNumLandscapes();
     } else {
       this.router.navigate(['sets']);
     }
@@ -57,6 +58,11 @@ export class OptionsComponent implements OnInit, FooterController {
 
   public clickContinue(): void {
     this.selectionService.selectNumSets(this.selectedNumSets!);
+
+    if (this.canHaveLandscapes()) {
+      this.selectionService.selectNumLandscapes(this.selectedNumLandscapes!);
+    }
+
     this.router.navigate(['result'])
   }
 
