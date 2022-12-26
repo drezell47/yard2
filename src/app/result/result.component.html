@@ -2,11 +2,6 @@
   <div class="col">
     <h3>Result</h3>
     <p>Play with these sets:</p>
-    <div class="card card-large" *ngFor="let set of pickedSets"
-        [style.background]="'linear-gradient(to bottom, #DDDDDD, ' + set.color + ' 25%)'">
-      <img class="icon" [src]="set.icon">
-      <p>{{set.name}}</p>
-      <img [src]="set.art">
-    </div>
+    <app-card large *ngFor="let set of pickedSets" [set]="set"></app-card>
   </div>
 </div>

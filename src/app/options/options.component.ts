@@ -36,7 +36,7 @@ export class OptionsComponent implements OnInit, FooterController {
 
   public continueText(): string {
     return this.selectedNumSets
-        ? 'Continue'
+        ? 'Continue to Result'
         : 'Select a number of sets';
   }
 

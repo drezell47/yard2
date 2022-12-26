@@ -14,9 +14,7 @@ export class NavService {
       private router: Router) {
     this.footerController = {
       canContinue: () => true,
-      clickContinue: () => {
-        console.log('Default clickContinue() function called');
-      },
+      clickContinue: () => {},
       continueText: () => 'Continue',
     };
   }
@@ -35,7 +33,6 @@ export class NavService {
   }
 
   public setFooterController(footerController: FooterController): void {
-    console.log('Setting footer controller');
     this.footerController = footerController;
   }
 }

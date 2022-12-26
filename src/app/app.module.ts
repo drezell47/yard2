@@ -10,6 +10,7 @@ import { ResultComponent } from './result/result.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FootbarComponent } from './footbar/footbar.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     OptionsComponent,
     ResultComponent,
     NavbarComponent,
-    FootbarComponent
+    FootbarComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,12 @@
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand d-none d-sm-block navbar-logo" href="#"><span class="">Y</span>et Another Randomizer for Dominion</a>
-    <a class="navbar-brand d-block d-sm-none navbar-logo" href="#">YARD</a>
+		<a class="navbar-brand d-none d-lg-block navbar-logo" href="#"><span class="">Y</span>et Another Randomizer for Dominion</a>
+    <a class="navbar-brand d-block d-lg-none navbar-logo" href="#">YARD</a>
 		<button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div [ngbCollapse]="isCollapsed" class="collapse navbar-collapse">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<ul class="navbar-nav me-auto">
 				<li class="nav-item">
 					<a class="nav-link active" routerLink="/sets" routerLinkActive="active" (click)="isCollapsed = true">Sets</a>
 				</li>
