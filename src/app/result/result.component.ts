@@ -11,6 +11,7 @@ import { SelectionService } from '../selection.service';
 export class ResultComponent implements OnInit, FooterController {
 
   public pickedSets: DominionSet[];
+  public overrideSet: DominionSet | undefined;
   public pickedLandscapes: string[];
 
   constructor(
@@ -41,10 +42,21 @@ export class ResultComponent implements OnInit, FooterController {
     this.pickedSets = [];
     this.pickedLandscapes = [];
 
+    // pick the override set first
+    this.overrideSet = this.selectionService.getOverrideSet();
+    let sets = Object.assign([], this.selectionService.getSets()
+        .filter(set => this.overrideSet === undefined || set.name !== this.overrideSet.name));
+
+    let numToPick = this.selectionService.getNumSets()!;
+
+    if (this.overrideSet) {
+      this.pickedSets.push(this.overrideSet);
+      numToPick -= 1;
+    }
+
     // pick some random sets
-    let sets = Object.assign([], this.selectionService.getSets());
     this.shuffle(sets);
-    this.pickedSets = sets.splice(0, this.selectionService.getNumSets());
+    this.pickedSets = this.pickedSets.concat(sets.splice(0, numToPick));
 
     // pick some random landscapes
     let landscapes = this.pickedSets.flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));

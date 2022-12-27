@@ -14,6 +14,7 @@ type DominionSet = CardShaped & {
 type Options = {
   numSets?: number;
   numLandscapes: number;
+  overrideSet?: DominionSet;
 };
 
 declare interface FooterController {

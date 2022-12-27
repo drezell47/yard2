@@ -25,6 +25,10 @@ export class SelectionService {
     };
   }
 
+  public getOverrideSet(): DominionSet | undefined {
+    return this.options.overrideSet;
+  }
+
   public getNumSets(): number | undefined {
     return this.options.numSets;
   }
@@ -35,6 +39,14 @@ export class SelectionService {
 
   public canHaveLandscapes(): boolean {
     return this.sets.flatMap(set => set.landscapes).length > 0;
+  }
+
+  public selectOverrideSet(set: DominionSet): void {
+    this.options.overrideSet = set;
+  }
+
+  public unselectOverrideSet(): void {
+    this.options.overrideSet = undefined;
   }
 
   public selectNumSets(numSets: number): void {

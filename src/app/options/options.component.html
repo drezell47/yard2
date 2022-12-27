@@ -5,6 +5,25 @@
 </div>
 <div class="row">
   <div class="col">
+    <p class="text-center">
+      Forced Set
+      <button *ngIf="overrideSet()" (click)="unselectOverrideSet()"
+          type="button" class="btn btn-outline-danger btn-sm">Remove</button>
+    </p>
+    <p class="text-center" *ngIf="!overrideSet()"><em>None</em></p>
+    <div class="d-flex justify-content-around">
+      <app-card large *ngIf="overrideSet()" [card]="overrideSet()!"></app-card>
+    </div>
+  </div>
+  <div class="col-lg-9">
+    <p class="text-center">Force the randomizer to pick a certain set?</p>
+    <div class="d-flex align-content-start flex-wrap justify-content-center">
+      <app-card *ngFor="let set of selectedSets()" [card]="set" (click)="selectOverrideSet(set)"></app-card>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
     <p class="text-center">How many sets do you want to use?</p>
     <nav>
       <ul class="pagination pagination-lg justify-content-center">
