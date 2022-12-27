@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col">
-    <h3>Result</h3>
-    <p>Play with these sets:</p>
-    <app-card large *ngFor="let set of pickedSets" [set]="set"></app-card>
-    <p *ngIf="pickedLandmarks.length > 0">Use these landmarks:</p>
-    <ul *ngIf="pickedLandmarks.length > 0">
-      <li *ngFor="let landmark of pickedLandmarks">{{landmark}}</li>
-    </ul>
+    <h3 class="text-center">Result</h3>
+    <div class="d-flex justify-content-center flex-wrap">
+      <app-card large *ngFor="let set of pickedSets" [card]="set"></app-card>
+    </div>
+    <h3 class="text-center">Landscapes</h3>
+    <p class="text-center" *ngIf="pickedLandscapes.length === 0"><em>None</em></p>
+    <p class="text-center" *ngFor="let landscape of pickedLandscapes">{{landscape}}</p>
   </div>
 </div>

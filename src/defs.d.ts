@@ -1,8 +1,11 @@
-type DominionSet = {
-	name: string;
+type CardShaped = {
+  name: string;
 	art: string;
 	icon: string;
 	color: string;
+};
+
+type DominionSet = CardShaped & {
   landscapes: string[];
   selected?: boolean;
   picked?: boolean;
@@ -10,7 +13,8 @@ type DominionSet = {
 
 type Options = {
   numSets?: number;
-  numLandscapes?: number;
+  numLandscapes: number;
+  overrideSet?: DominionSet;
 };
 
 declare interface FooterController {

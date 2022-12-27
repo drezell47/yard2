@@ -11,14 +11,15 @@ import { SelectionService } from '../selection.service';
 export class ResultComponent implements OnInit, FooterController {
 
   public pickedSets: DominionSet[];
-  public pickedLandmarks: string[];
+  public overrideSet: DominionSet | undefined;
+  public pickedLandscapes: string[];
 
   constructor(
       private selectionService: SelectionService,
       private navService: NavService,
       private router: Router) {
     this.pickedSets = [];
-    this.pickedLandmarks = [];
+    this.pickedLandscapes = [];
   }
 
   ngOnInit(): void {
@@ -39,18 +40,29 @@ export class ResultComponent implements OnInit, FooterController {
 
   public randomize(): void {
     this.pickedSets = [];
-    this.pickedLandmarks = [];
+    this.pickedLandscapes = [];
+
+    // pick the override set first
+    this.overrideSet = this.selectionService.getOverrideSet();
+    let sets = Object.assign([], this.selectionService.getSets()
+        .filter(set => this.overrideSet === undefined || set.name !== this.overrideSet.name));
+
+    let numToPick = this.selectionService.getNumSets()!;
+
+    if (this.overrideSet) {
+      this.pickedSets.push(this.overrideSet);
+      numToPick -= 1;
+    }
 
     // pick some random sets
-    let sets = Object.assign([], this.selectionService.getSets());
     this.shuffle(sets);
-    this.pickedSets = sets.splice(0, this.selectionService.getNumSets());
+    this.pickedSets = this.pickedSets.concat(sets.splice(0, numToPick));
 
-    // pick some random landmarks
-    let landmarks = this.pickedSets.flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));
-    landmarks = landmarks.concat(landmarks);
-    this.shuffle(landmarks);
-    this.pickedLandmarks = landmarks.splice(0, this.selectionService.getNumLandscapes());
+    // pick some random landscapes
+    let landscapes = this.pickedSets.flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));
+    landscapes = landscapes.concat(landscapes);
+    this.shuffle(landscapes);
+    this.pickedLandscapes = landscapes.splice(0, this.selectionService.getNumLandscapes());
   }
 
   public clickContinue = this.randomize;
