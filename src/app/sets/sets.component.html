@@ -8,7 +8,7 @@
   <div class="col">
     <h3 class="text-center">
       Available
-      <button [disabled]="unselectedSets().length === 0" (click)="selectAll()"
+      <button *ngIf="unselectedSets().length > 0" (click)="selectAll()"
           type="button" class="btn btn-outline-success btn-sm">Select All</button>
     </h3>
     <div class="d-flex align-content-start flex-wrap justify-content-center">
@@ -18,7 +18,7 @@
   <div class="col">
     <h3 class="text-center">
       Selected
-      <button [disabled]="selectedSets().length === 0" (click)="unselectAll()"
+      <button *ngIf="selectedSets().length > 0" (click)="unselectAll()"
           type="button" class="btn btn-outline-danger btn-sm">Remove All</button>
     </h3>
     <div class="d-flex align-content-start flex-wrap justify-content-center">

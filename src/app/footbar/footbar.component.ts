@@ -8,17 +8,19 @@ import { NavService } from '../nav.service';
 })
 export class FootbarComponent {
 
+  public version: string = '2.2';
+
   constructor(private navService: NavService) {}
 
   public clickContinue(): void {
-    this.navService.footerController.clickContinue();
+    this.navService.navController.clickContinue();
   }
 
   public disableContinue(): boolean {
-    return !this.navService.footerController.canContinue();
+    return !this.navService.navController.canContinue();
   }
 
   public continueText(): string {
-    return this.navService.footerController.continueText();
+    return this.navService.navController.continueText();
   }
 }

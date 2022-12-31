@@ -7,16 +7,26 @@ import { SelectionService } from './selection.service';
 })
 export class NavService {
 
-  footerController: FooterController;
+  navController: NavController;
 
   constructor(
       private selectionService: SelectionService,
       private router: Router) {
-    this.footerController = {
+    this.navController = {
+      showBackButton: () => true,
+      clickBack: () => {},
       canContinue: () => true,
       clickContinue: () => {},
       continueText: () => 'Continue',
     };
+  }
+
+  public showBackButton(): boolean {
+    return this.navController.showBackButton();
+  }
+
+  public clickBackButton(): void {
+    this.navController.clickBack();
   }
 
   public canShowOptions(): boolean {
@@ -32,7 +42,7 @@ export class NavService {
     this.router.navigate(['sets']);
   }
 
-  public setFooterController(footerController: FooterController): void {
-    this.footerController = footerController;
+  public setNavController(navController: NavController): void {
+    this.navController = navController;
   }
 }

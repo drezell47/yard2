@@ -8,7 +8,7 @@ import { SelectionService } from '../selection.service';
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
-export class ResultComponent implements OnInit, FooterController {
+export class ResultComponent implements OnInit, NavController {
 
   public pickedSets: DominionSet[];
   public overrideSet: DominionSet | undefined;
@@ -24,11 +24,15 @@ export class ResultComponent implements OnInit, FooterController {
 
   ngOnInit(): void {
     if (this.navService.canShowResult()) {
-      this.navService.setFooterController(this);
+      this.navService.setNavController(this);
       this.randomize();
     } else {
       this.router.navigate(['sets']);
     }
+  }
+
+  public canHaveLandscapes(): boolean {
+    return this.selectionService.canHaveLandscapes();
   }
 
   private shuffle<T>(array: T[]) {
@@ -63,6 +67,12 @@ export class ResultComponent implements OnInit, FooterController {
     landscapes = landscapes.concat(landscapes);
     this.shuffle(landscapes);
     this.pickedLandscapes = landscapes.splice(0, this.selectionService.getNumLandscapes());
+  }
+
+  public showBackButton = () => true;
+
+  public clickBack() {
+    this.router.navigate(['options']);
   }
 
   public clickContinue = this.randomize;
