@@ -4,8 +4,8 @@
     <div class="d-flex justify-content-center flex-wrap">
       <app-card large *ngFor="let set of pickedSets" [card]="set"></app-card>
     </div>
-    <h3 class="text-center">Landscapes</h3>
-    <p class="text-center" *ngIf="pickedLandscapes.length === 0"><em>None</em></p>
+    <h3 class="text-center" *ngIf="canHaveLandscapes()">Landscapes</h3>
+    <p class="text-center" *ngIf="canHaveLandscapes() && pickedLandscapes.length === 0"><em>None</em></p>
     <p class="text-center" *ngFor="let landscape of pickedLandscapes">{{landscape}}</p>
   </div>
 </div>

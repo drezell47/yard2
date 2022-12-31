@@ -9,7 +9,7 @@ import { SelectionService } from '../selection.service';
   templateUrl: './sets.component.html',
   styleUrls: ['./sets.component.scss']
 })
-export class SetsComponent implements OnInit, FooterController {
+export class SetsComponent implements OnInit, NavController {
 
   private sets: DominionSet[];
 
@@ -22,7 +22,7 @@ export class SetsComponent implements OnInit, FooterController {
   }
 
   ngOnInit(): void {
-    this.navService.setFooterController(this);
+    this.navService.setNavController(this);
     this.unselectAll();
 
     this.selectionService.getSets().forEach(set => {
@@ -53,6 +53,10 @@ export class SetsComponent implements OnInit, FooterController {
   public unselectAll(): void {
     this.sets.forEach(set => set.selected = false);
   }
+
+  public showBackButton = () => false;
+
+  public clickBack = () => {};
 
   public continueText(): string {
     return this.canContinue()

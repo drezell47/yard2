@@ -17,7 +17,9 @@ type Options = {
   overrideSet?: DominionSet;
 };
 
-declare interface FooterController {
+declare interface NavController {
+  showBackButton: () => boolean,
+  clickBack: () => void,
   clickContinue: () => void,
   continueText: () => string,
   canContinue: () => boolean

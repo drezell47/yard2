@@ -8,7 +8,7 @@ import { SelectionService } from '../selection.service';
   templateUrl: './options.component.html',
   styleUrls: ['./options.component.scss']
 })
-export class OptionsComponent implements OnInit, FooterController {
+export class OptionsComponent implements OnInit, NavController {
 
   public selectedNumSets: number | undefined;
   public selectedNumLandscapes: number;
@@ -20,7 +20,7 @@ export class OptionsComponent implements OnInit, FooterController {
 
   ngOnInit(): void {
     if (this.navService.canShowOptions()) {
-      this.navService.setFooterController(this);
+      this.navService.setNavController(this);
       this.selectedNumSets = this.selectionService.getNumSets();
       this.selectedNumLandscapes = this.selectionService.getNumLandscapes();
     } else {
@@ -63,6 +63,12 @@ export class OptionsComponent implements OnInit, FooterController {
 
   public selectNumLandscapes(numLandscapes: number): void {
     this.selectedNumLandscapes = numLandscapes;
+  }
+
+  public showBackButton = () => true;
+
+  public clickBack() {
+    this.router.navigate(['sets']);
   }
 
   public continueText(): string {
