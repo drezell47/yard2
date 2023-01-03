@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import * as allSets from './sets.json';
+import * as allSets from './data.json';
 
 @Injectable({
   providedIn: 'root'

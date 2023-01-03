@@ -1,26 +1,26 @@
 <div class="row">
   <div class="col">
     <h3 class="text-center">Sets</h3>
-    <p class="text-center">Which sets would you like to use?</p>
+    <p class="text-center">Pick the sets you want to play with.</p>
   </div>
 </div>
 <div class="row">
   <div class="col">
-    <h3 class="text-center">
-      Available
+    <h5 class="text-center">
+      Available Sets
       <button *ngIf="unselectedSets().length > 0" (click)="selectAll()"
           type="button" class="btn btn-outline-success btn-sm">Select All</button>
-    </h3>
+    </h5>
     <div class="d-flex align-content-start flex-wrap justify-content-center">
       <app-card *ngFor="let set of unselectedSets()" [card]="set" (click)="select(set)"></app-card>
     </div>
   </div>
   <div class="col">
-    <h3 class="text-center">
-      Selected
+    <h5 class="text-center">
+      Selected Sets
       <button *ngIf="selectedSets().length > 0" (click)="unselectAll()"
           type="button" class="btn btn-outline-danger btn-sm">Remove All</button>
-    </h3>
+    </h5>
     <div class="d-flex align-content-start flex-wrap justify-content-center">
       <app-card *ngFor="let set of selectedSets()" [card]="set" (click)="unselect(set)"></app-card>
     </div>

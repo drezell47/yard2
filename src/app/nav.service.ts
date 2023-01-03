@@ -34,7 +34,7 @@ export class NavService {
   }
 
   public canShowResult(): boolean {
-    return this.selectionService.getNumSets() !== undefined;
+    return this.selectionService.getSets().length > 0;
   }
 
   public startOver(): void {
