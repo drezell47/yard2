@@ -12,7 +12,7 @@ type DominionSet = CardShaped & {
 };
 
 type Options = {
-  numSets?: number;
+  numSets: number;
   numLandscapes: number;
   overrideSet?: DominionSet;
 };

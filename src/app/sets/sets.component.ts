@@ -61,7 +61,7 @@ export class SetsComponent implements OnInit, NavController {
   public continueText(): string {
     return this.canContinue()
         ? 'Continue to Options'
-        : 'Select at least 2 sets';
+        : 'Pick at least 2 sets';
   }
 
   public clickContinue(): void {

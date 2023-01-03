@@ -71,11 +71,7 @@ export class OptionsComponent implements OnInit, NavController {
     this.router.navigate(['sets']);
   }
 
-  public continueText(): string {
-    return this.selectedNumSets !== undefined
-        ? 'Continue to Result'
-        : 'Select a number of sets';
-  }
+  public continueText = () => 'Continue to Result';
 
   public clickContinue(): void {
     this.selectionService.selectNumSets(this.selectedNumSets!);

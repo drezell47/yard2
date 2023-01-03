@@ -18,18 +18,13 @@ export class SelectionService {
 
   public selectSets(sets: DominionSet[]): void {
     this.sets = sets;
-
-    // reset the options
-    this.options = {
-      numLandscapes: 0
-    };
   }
 
   public getOverrideSet(): DominionSet | undefined {
     return this.options.overrideSet;
   }
 
-  public getNumSets(): number | undefined {
+  public getNumSets(): number {
     return this.options.numSets;
   }
 
@@ -59,8 +54,10 @@ export class SelectionService {
 
   public reset(): void {
     this.sets = [];
+
     this.options = {
-      numLandscapes: 0
+      numSets: 1,
+      numLandscapes: 2
     };
   }
 }
