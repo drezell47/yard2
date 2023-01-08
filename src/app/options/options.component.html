@@ -17,8 +17,8 @@
     </nav>
   </div>
 </div>
-<hr>
 <div class="row" *ngIf="canHaveLandscapes()">
+  <hr>
   <div class="col">
     <p class="text-center">How many landscape cards do you want to play with?</p>
     <nav>
@@ -32,8 +32,8 @@
     </nav>
   </div>
 </div>
-<hr>
 <div class="row">
+  <hr>
   <h5 class="text-center">Override Set</h5>
   <p class="text-center">Really itching to play a specific set? If so, pick one here and the randomizer will be guaranteed to choose it.</p>
   <div class="col-lg-9">
@@ -41,7 +41,7 @@
       <app-card *ngFor="let set of selectedSets()" [card]="set" (click)="selectOverrideSet(set)"></app-card>
     </div>
   </div>
-  <div class="col">
+  <div class="col-lg-3">
     <p class="text-center" *ngIf="!overrideSet()"><em>None selected</em></p>
     <div class="d-flex justify-content-around">
       <app-card large *ngIf="overrideSet()" (click)="unselectOverrideSet()" [card]="overrideSet()!"></app-card>
