@@ -8,7 +8,7 @@ import { NavService } from '../nav.service';
 })
 export class FootbarComponent {
 
-  public version: string = '2.2';
+  public version: string = '2.3';
 
   constructor(private navService: NavService) {}
 
