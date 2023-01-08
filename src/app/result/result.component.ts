@@ -10,15 +10,12 @@ import { SelectionService } from '../selection.service';
 })
 export class ResultComponent implements OnInit, NavController {
 
-  public pickedSets: DominionSet[];
-  public overrideSet: DominionSet | undefined;
   public pickedLandscapes: string[];
 
   constructor(
       private selectionService: SelectionService,
       private navService: NavService,
       private router: Router) {
-    this.pickedSets = [];
     this.pickedLandscapes = [];
   }
 
@@ -43,30 +40,54 @@ export class ResultComponent implements OnInit, NavController {
   }
 
   public randomize(): void {
-    this.pickedSets = [];
-    this.pickedLandscapes = [];
+    // reset the picked flag on the sets
+    const sets = this.selectionService.getSets();
+    sets.forEach(set => set.picked = false);
+
+    // figure out how many sets to pick
+    let numSetsToPick = this.selectionService.getNumSets();
 
     // pick the override set first
-    this.overrideSet = this.selectionService.getOverrideSet();
-    let sets = Object.assign([], this.selectionService.getSets()
-        .filter(set => this.overrideSet === undefined || set.name !== this.overrideSet.name));
+    const overrideSet = this.selectionService.getOverrideSet();
 
-    let numToPick = this.selectionService.getNumSets()!;
-
-    if (this.overrideSet) {
-      this.pickedSets.push(this.overrideSet);
-      numToPick -= 1;
+    // if there is an override set
+    if (overrideSet !== undefined) {
+      let index = sets.findIndex(set => set.name == overrideSet!.name);
+      sets[index].picked = true;
+      numSetsToPick -= 1;
     }
 
     // pick some random sets
-    this.shuffle(sets);
-    this.pickedSets = this.pickedSets.concat(sets.splice(0, numToPick));
+    while (numSetsToPick > 0) {
+      // pick a random set index
+      const index = Math.floor(Math.random() * sets.length);
+
+      // if it's not picked yet
+      if (!sets[index].picked) {
+        // pick it
+        sets[index].picked = true;
+        numSetsToPick -= 1;
+      }
+    }
 
     // pick some random landscapes
-    let landscapes = this.pickedSets.flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));
-    landscapes = landscapes.concat(landscapes);
+    this.pickedLandscapes = [];
+    let landscapes = sets.filter(set => set.picked)
+        .flatMap(set => set.landscapes.map(landscape => landscape + ' from ' + set.name));
+
+    const numLandscapesToPick = this.selectionService.getNumLandscapes();
+
+    for (let i = 1; i < numLandscapesToPick; i++) {
+      landscapes = landscapes.concat(landscapes);
+    }
+
     this.shuffle(landscapes);
     this.pickedLandscapes = landscapes.splice(0, this.selectionService.getNumLandscapes());
+  }
+
+  public pickedSets(): DominionSet[] {
+    return this.selectionService.getSets()
+        .filter(set => set.picked);
   }
 
   public showBackButton = () => true;

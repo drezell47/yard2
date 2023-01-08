@@ -3,12 +3,12 @@
     <h3 class="text-center">Result</h3>
     <p class="text-center">Play with these sets:</p>
     <div class="d-flex justify-content-center flex-wrap">
-      <app-card large *ngFor="let set of pickedSets" [card]="set"></app-card>
+      <app-card large *ngFor="let set of pickedSets()" [card]="set"></app-card>
     </div>
   </div>
 </div>
-<hr>
 <div class="row" *ngIf="canHaveLandscapes()">
+  <hr>
   <div class="col">
     <h5 class="text-center">Landscapes</h5>
     <p class="text-center" *ngIf="pickedLandscapes.length === 0"><em>None</em></p>
