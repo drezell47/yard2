@@ -1,5 +1,5 @@
 # Yet Another Randomizer for Dominion
-[YARD](https://dominion.sparkly.studio/) is a simple web app for picking out which Dominion expansions to play.
+[YARD](https://dominion.sparkly.studio/) is a simple web app for picking out which Dominion sets to play.
 
 ### Technologies
 YARD is a lightweight, frontend-only, Single Page Application.
@@ -9,7 +9,7 @@ YARD is a lightweight, frontend-only, Single Page Application.
 - SCSS
 
 ### Features
-YARD
+YARD lets you choose the dominion sets you want to play.
 
 ### Running YARD locally
 **Prerequisites:** You just need `node` and `npm` installed.
