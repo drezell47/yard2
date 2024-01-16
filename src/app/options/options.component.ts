@@ -46,7 +46,7 @@ export class OptionsComponent implements OnInit, NavController {
   }
 
   public maxNumSets(): number {
-    return Math.max(1, Math.min(5, this.selectionService.getSets().length - 1));
+    return Math.max(1, Math.min(5, this.selectionService.getSets().length));
   }
 
   public canHaveLandscapes(): boolean {
